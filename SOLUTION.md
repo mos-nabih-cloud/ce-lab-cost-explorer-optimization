@@ -1,8 +1,8 @@
 # Lab Solution: AWS Cost Explorer and Cost Optimization
 
-**Student Name:** ___________________________  
-**Date:** ___________________________  
-**Lab Completion Time:** ___________ minutes
+**Student Name:** Mos  
+**Date:** 24.04.2026  
+**Lab Completion Time:** 120 minutes
 
 ---
 
@@ -11,9 +11,10 @@
 ### Screenshot 1: Cost Explorer Dashboard
 ![Cost Explorer](screenshots/01-cost-explorer-dashboard.png)
 
-**Date Cost Explorer enabled (if new):** ___________________________
+**Date Cost Explorer enabled (if new):** enabled by default
 
-**Account has usage history:** ☐ Yes ☐ No (If no, practiced with interface)
+**Account has usage history:** X Yes ☐ No (If no, practiced with interface)
+Some screenshots provided by instructor.
 
 ---
 
@@ -22,18 +23,19 @@
 ### 6-Month Cost Trends
 
 **Screenshot 2: 6-Month Trend**
-![6-Month Trend](screenshots/02-6-month-trend.png)
+![6-Month Trend](../screenshots-by-instructor/cost explorer 6 month report with daily data.png)
 
-**Total spend (last 6 months):** $_______________
+**Total spend (last 6 months):** Approx. $2,800
 
-**Average monthly:** $_______________
+**Average monthly:** Approx. $467
 
-**Highest month:** _________________, $_______________
+**Highest month:** October 2025, approx. $730
 
 **Reason for highest month:**
 ```
-_____________________________________________________________
-_____________________________________________________________
+Based on the instructor daily report from 2025-08-01 to 2026-01-31,
+October appears to be the peak month because it contains the tallest
+spike (about $155) plus several mid-October spikes around $90.
 ```
 
 ---
@@ -45,10 +47,11 @@ _____________________________________________________________
 
 **Observations about daily patterns:**
 ```
-_____________________________________________________________
-_____________________________________________________________
-_____________________________________________________________
-_____________________________________________________________
+- Date range: Jan 23–31, 2026 (9 days)
+- Total cost: $58.78 | Average daily cost: $6.53
+- Most days sit around $6.00, indicating a stable baseline spend
+- Jan 30 is a clear spike at $10.06 roughly 54% above the daily average
+- Jan 31 appears to drop back down to ~$6.00
 ```
 
 ---
@@ -61,11 +64,12 @@ _____________________________________________________________
 ![Top Services](screenshots/04-top-services.png)
 
 **Top 5 Services:**
-1. ___________________________: $_______________
-2. ___________________________: $_______________
-3. ___________________________: $_______________
-4. ___________________________: $_______________
-5. ___________________________: $_______________
+1. Elastic Compute Cloud:    $89.24
+2. Elastic Load Balancing:   $39.58
+3. Virtual Private Cloud:    $37.21
+4. Key Management Service:   $8.38
+5. WAF:                      $8.00
+
 
 ---
 
@@ -74,11 +78,13 @@ _____________________________________________________________
 **Screenshot 5: EC2 Breakdown**
 ![EC2 Costs](screenshots/05-ec2-breakdown.png)
 
-**Most expensive instance type:** ___________________________
+**Most expensive instance type:** No instance type (other)
 
-**Total EC2 cost (last month):** $_______________
+**Total EC2 cost (last month):** $984.29
 
 **Percentage of total bill:** ___________%
+
+Data not available: available
 
 **Usage type breakdown:**
 - On-Demand: $_______________
@@ -92,6 +98,8 @@ _____________________________________________________________
 
 **Screenshot 6: S3 Breakdown**
 ![S3 Costs](screenshots/06-s3-breakdown.png)
+
+Data not available: available
 
 **Total S3 cost:** $_______________
 
@@ -116,7 +124,9 @@ _____________________________________________________________
 **Screenshot 7: Regional Costs**
 ![Regional Breakdown](screenshots/07-regional-costs.png)
 
-**Most expensive region:** ___________________________
+Data provided is only legend with availability zone, not region.
+
+**Most expensive region:** top is "no zone" followed by eu-west-1b
 
 **Cost:** $_______________
 
@@ -133,7 +143,9 @@ _____________________________________________________________
 **Screenshot 8: Cost by Tag**
 ![Tagged Costs](screenshots/08-cost-by-tag.png)
 
-**Tags analyzed:** ☐ Environment ☐ Project ☐ Team ☐ None available yet
+Data not available.
+
+**Tags analyzed:** ☐ Environment ☐ Project ☐ Team x None available yet
 
 **Cost breakdown by tag (if available):**
 - Tag key: ___________________________
@@ -151,11 +163,11 @@ _____________________________________________________________
 ![Cost Allocation Tags](screenshots/09-activated-tags.png)
 
 **AWS-Generated tags activated:**
-- [ ] aws:createdBy
+- [x] aws:createdBy
 - [ ] aws:cloudformation:stack-name
 - [ ] Other: ___________________________
 
-**Activation date:** ___________________________
+**Activation date:** 24.04.2026
 
 ---
 
@@ -164,31 +176,30 @@ _____________________________________________________________
 **Screenshot 10: Tagged Resources**
 ![Tagged Resources](screenshots/10-tagged-resources.png)
 
-**Resources tagged:** _________
+**Resources tagged:** ec2
 
 **Tagging Plan:**
 
 **Tag 1:**
-- Key: ___________________________
-- Values: _______________, _______________, _______________
-- Purpose: _______________________________________________
+- Key: Team
+- Values: engineering, marketing, data
+- Purpose: Attribute costs to the team responsible for each resource
 
 **Tag 2:**
-- Key: ___________________________
-- Values: _______________, _______________, _______________
-- Purpose: _______________________________________________
+- Key: Environment
+- Values: production, staging, development
+- Purpose: Separate costs by environment to identify non prod overspend
 
 **Tag 3:**
-- Key: ___________________________
-- Values: _______________, _______________, _______________
-- Purpose: _______________________________________________
+- Key: Project
+- Values: web-app, internal-tools, data-pipeline
+- Purpose: Track per project spend for budgeting and chargebacks
 
 **How will these tags help with cost management?**
 ```
-_____________________________________________________________
-_____________________________________________________________
-_____________________________________________________________
-_____________________________________________________________
+By consistently tagging all resources with Team, Environment, and Project,
+Cost Explorer can be filtered and grouped to show exactly who is spending
+what and where.
 ```
 
 ---
@@ -201,10 +212,10 @@ _____________________________________________________________
 ![Monthly Report](screenshots/11-monthly-report.png)
 
 **Report configuration:**
-- Date range: ___________________________
-- Granularity: ___________________________
-- Group by: ___________________________
-- Chart type: ___________________________
+- Date range: last 3 month
+- Granularity: Monthly
+- Group by: Service
+- Chart type: Bar
 
 ---
 
@@ -227,7 +238,7 @@ _____________________________________________________________
 
 **How often will you review this report?**
 ```
-_____________________________________________________________
+I would check it once per day.
 ```
 
 ---
@@ -239,13 +250,13 @@ _____________________________________________________________
 **Screenshot 14: Anomaly Detection Monitor**
 ![Anomaly Monitor](screenshots/14-anomaly-monitor.png)
 
-**Monitor name:** ___________________________
+**Monitor name:** All Services Cost Monitor
 
-**Threshold:** $_______________
+**Threshold:** $10
 
-**SNS topic:** ___________________________
+**SNS topic:** cost-anomaly-alerts
 
-**Email confirmed:** ☐ Yes ☐ No
+**Email confirmed:** ☐ Yes x No -> used masked email
 
 ---
 
@@ -255,8 +266,8 @@ _____________________________________________________________
 ![Service Monitor](screenshots/15-service-monitor.png)
 
 **Services monitored:**
-- [ ] EC2
-- [ ] S3
+- [x] EC2
+- [x] S3
 - [ ] RDS
 - [ ] Other: ___________________________
 
